@@ -136,6 +136,8 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
 
 ```
 
+如下图所示：
+
 ![](./pngs/btn04.png)
 
 
@@ -155,6 +157,8 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
 
 ```
 
+如下图所示：
+
 ![](./pngs/btn06.png)
 
 ### 一个cancelButton的UIAlertView
@@ -172,6 +176,9 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
 
 
 ```
+
+如下图所示：
+
 
 ![](./pngs/btn07.png)
 
@@ -251,9 +258,11 @@ demo效果图如下：
 
 #  联系与建议反馈
 
->weibo: http://weibo.com/balenn
 >
->QQ: 362108564
+> **weibo:** [http://weibo.com/balenn](http://weibo.com/balenn)
+>
+> **QQ:** 362108564
+> 
 
 如果有任何你觉得不对的地方，或有更好的建议，以上联系都可以联系我。 十分感谢！ 
 
