@@ -435,9 +435,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
 -(instancetype)init{
 
     if ([super init]) {
-        titleLabelTextColor = [UIColor colorWithHex:0xff3c6f];
-        contentLabelTextColor = [UIColor colorWithHex:0x555555];
-        alertViewBackgroundColor = [UIColor whiteColor];
+
     }
     return self;
 }
@@ -451,7 +449,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     alertView.size = CGSizeMake(kAlertViewWidth, kAlertViewHight);
     alertView.x = (SCREEN_WIDTH - kAlertViewWidth)/2;
     alertView.y  = (SCREEN_HEIGHT - kAlertViewHight)/2;
-    alertView.backgroundColor = alertViewBackgroundColor;
+    alertView.backgroundColor = [UIColor whiteColor];
     alertView.layer.cornerRadius = 10;
     [currWindow addSubview:alertView];
 
@@ -459,7 +457,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     //标题
     titleLabel = [[UILabel alloc] init];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.textColor = titleLabelTextColor;
+    titleLabel.textColor = [UIColor colorWithHex:0xff3c6f];
     titleLabel.font   = [UIFont boldSystemFontOfSize:17];
     titleLabel.size   = CGSizeMake(kAlertViewWidth-kAlertViewSpace*2,KTitleLabelHigth);
     titleLabel.x   = kAlertViewSpace;
@@ -471,7 +469,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
 
     contentLabel = [[UILabel alloc] init];
     contentLabel.textAlignment = NSTextAlignmentLeft;
-    contentLabel.textColor = contentLabelTextColor;
+    contentLabel.textColor = [UIColor colorWithHex:0x555555];
     contentLabel.font   = [UIFont systemFontOfSize:15];
     contentLabel.backgroundColor = [UIColor clearColor];
     contentLabel.numberOfLines   = 0;
@@ -521,57 +519,57 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
 
 
 -(void)showAlertViewWithMessage:(NSString *)message
-                 subBottonTitle:(NSString *)subBottonTitle
+                 subBottonTitle:(nullable NSString *)subBottonTitle
                         handler:(clickButtonAtIndexBlock )block{
 
-    [self showAlertView:@"" message:message subBottonTitle:subBottonTitle cancelButtonTitle:@"" handler:^(AlertViewClickBottonType bottonType) {
+    [self showAlertView:nil message:message subBottonTitle:subBottonTitle cancelButtonTitle:nil handler:^(AlertViewClickBottonType bottonType) {
         block(bottonType);
     }];
 }
 
 -(void)showAlertViewWithMessage:(NSString *)message
-              cancelButtonTitle:(NSString *)cancelButtonTitle
+              cancelButtonTitle:(nullable NSString *)cancelButtonTitle
                         handler:(clickButtonAtIndexBlock )block{
 
-    [self showAlertView:@"" message:message subBottonTitle:@"" cancelButtonTitle:cancelButtonTitle handler:^(AlertViewClickBottonType bottonType) {
+    [self showAlertView:nil message:message subBottonTitle:nil cancelButtonTitle:cancelButtonTitle handler:^(AlertViewClickBottonType bottonType) {
         block(bottonType);
     }];
 }
 
 -(void)showAlertViewWithMessage:(NSString *)message
-                 subBottonTitle:(NSString *)subBottonTitle
-              cancelButtonTitle:(NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block{
+                 subBottonTitle:(nullable NSString *)subBottonTitle
+              cancelButtonTitle:(nullable NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block{
 
-    [self showAlertView:@"" message:message subBottonTitle:subBottonTitle cancelButtonTitle:cancelButtonTitle handler:^(AlertViewClickBottonType bottonType) {
+    [self showAlertView:nil message:message subBottonTitle:subBottonTitle cancelButtonTitle:cancelButtonTitle handler:^(AlertViewClickBottonType bottonType) {
         block(bottonType);
     }];
 }
 
--(void)showAlertView:(NSString *)title
+-(void)showAlertView:(nullable NSString *)title
              message:(NSString *)message
-      subBottonTitle:(NSString *)subBottonTitle
+      subBottonTitle:(nullable NSString *)subBottonTitle
              handler:(clickButtonAtIndexBlock )block{
 
-    [self showAlertView:title message:message subBottonTitle:subBottonTitle cancelButtonTitle:@"" handler:^(AlertViewClickBottonType bottonType) {
+    [self showAlertView:title message:message subBottonTitle:subBottonTitle cancelButtonTitle:nil handler:^(AlertViewClickBottonType bottonType) {
         block(bottonType);
     }];
 }
 
--(void)showAlertView:(NSString *)title
+-(void)showAlertView:(nullable NSString *)title
              message:(NSString *)message
-   cancelButtonTitle:(NSString *)cancelButtonTitle
+   cancelButtonTitle:(nullable NSString *)cancelButtonTitle
              handler:(clickButtonAtIndexBlock )block{
 
-    [self showAlertView:title message:message subBottonTitle:@"" cancelButtonTitle:cancelButtonTitle handler:^(AlertViewClickBottonType bottonType) {
+    [self showAlertView:title message:message subBottonTitle:nil cancelButtonTitle:cancelButtonTitle handler:^(AlertViewClickBottonType bottonType) {
         block(bottonType);
     }];
 }
 
 
--(void)showAlertView:(NSString *)title
+-(void)showAlertView:(nullable NSString *)title
              message:(NSString *)message
-      subBottonTitle:(NSString *)subBottonTitle
-   cancelButtonTitle:(NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block{
+      subBottonTitle:(nullable NSString *)subBottonTitle
+   cancelButtonTitle:(nullable NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block{
 
     buttonAtIndexBlock = block;
 
@@ -668,10 +666,23 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
  *  隐藏AlertView
  **/
 -(void)hideAlertView{
+    titleLabelTextColor = nil;
+    contentLabelTextColor = nil;
+    alertViewBackgroundColor = nil;
+    alertViewBackgroundImage  = nil;
+    subBottonTitleColor       = nil;
+    subBottonBackgroundColor  = nil;
+    subBottonBorderColor      = nil;
+    cancelButtonBackgroundColor = nil;
+    cancelButtonBackgroundColor  = nil;
+    cancelButtonBorderColor      = nil;
+    alertViewBackgroundImage     = nil;
+
 
     currWindow.hidden = YES;
     currWindow = nil;
     self.hidden = YES;
+
 }
 
 -(void)itemClickSubView:(id)sender{
@@ -691,17 +702,15 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
 
 -(void)alertViewExtend{
 
-    titleLabel.textColor   = titleLabelTextColor;
-    contentLabel.textColor = contentLabelTextColor;
-    alertView.backgroundColor = alertViewBackgroundColor;
+    titleLabel.textColor   = titleLabelTextColor?titleLabelTextColor:[UIColor colorWithHex:0xff3c6f];
+    contentLabel.textColor = contentLabelTextColor?contentLabelTextColor:[UIColor colorWithHex:0x555555];
+
+    alertView.backgroundColor = alertViewBackgroundColor?alertViewBackgroundColor:[UIColor whiteColor];
 
     if (alertViewBackgroundImage) {
         alertView.backgroundColor = [UIColor colorWithPatternImage:alertViewBackgroundImage];
     }
-
-    if (subBottonTitleColor) {
-        subLabel.textColor = subBottonTitleColor;
-    }
+    subLabel.textColor = subBottonTitleColor?subBottonTitleColor:[UIColor whiteColor];
 
     if (subBottonBackgroundColor) {
         subLabel.backgroundColor = subBottonBackgroundColor;
@@ -725,19 +734,9 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
         subLabel.layer.borderColor = subBottonBorderColor.CGColor;
     }
 
-    if (cancelButtonBackgroundColor) {
-
-        cancelLabel.backgroundColor = cancelButtonBackgroundColor;
-    }
-
-    if (cancelButtonTitleColor) {
-        cancelLabel.textColor = cancelButtonTitleColor;
-    }
-
-    if (cancelButtonBorderColor) {
-        cancelLabel.layer.borderColor = cancelButtonTitleColor.CGColor;
-    }
-
+    cancelLabel.backgroundColor = cancelButtonBackgroundColor?cancelButtonBackgroundColor:[UIColor clearColor];
+    cancelLabel.textColor = cancelButtonTitleColor?cancelButtonTitleColor:[UIColor mainColor];
+    cancelLabel.layer.borderColor = cancelButtonBorderColor?cancelButtonBorderColor.CGColor: [UIColor mainColor].CGColor;;
 
 }
 

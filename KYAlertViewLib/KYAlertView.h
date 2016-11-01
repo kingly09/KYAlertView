@@ -41,6 +41,7 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  */
 + (KYAlertView *) sharedInstance;
 
+
 /**
  设置AlertView标题的颜色
 
@@ -120,7 +121,7 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  @param subBottonTitle    确认按钮文案
  */
 -(void)showAlertViewWithMessage:(NSString *)message
-                 subBottonTitle:(NSString *)subBottonTitle
+                 subBottonTitle:(nullable NSString *)subBottonTitle
                         handler:(clickButtonAtIndexBlock )block;
 
 
@@ -131,9 +132,9 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  @param message           消息内容
  @param subBottonTitle    确认按钮文案
  */
--(void)showAlertView:(NSString *)title
+-(void)showAlertView:(nullable NSString *)title
              message:(NSString *)message
-      subBottonTitle:(NSString *)subBottonTitle
+      subBottonTitle:(nullable NSString *)subBottonTitle
              handler:(clickButtonAtIndexBlock )block;
 
 /**
@@ -143,7 +144,7 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  @param cancelButtonTitle 取消按钮文案
  */
 -(void)showAlertViewWithMessage:(NSString *)message
-              cancelButtonTitle:(NSString *)cancelButtonTitle
+              cancelButtonTitle:(nullable NSString *)cancelButtonTitle
                         handler:(clickButtonAtIndexBlock )block;
 
 
@@ -155,9 +156,9 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  @param message           消息内容
  @param cancelButtonTitle 取消按钮文案
  */
--(void)showAlertView:(NSString *)title
+-(void)showAlertView:(nullable NSString *)title
              message:(NSString *)message
-   cancelButtonTitle:(NSString *)cancelButtonTitle
+   cancelButtonTitle:(nullable NSString *)cancelButtonTitle
              handler:(clickButtonAtIndexBlock )block;
 
 /**
@@ -168,8 +169,8 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  @param cancelButtonTitle 取消按钮文案
  */
 -(void)showAlertViewWithMessage:(NSString *)message
-                 subBottonTitle:(NSString *)subBottonTitle
-              cancelButtonTitle:(NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block;
+                 subBottonTitle:(nullable NSString *)subBottonTitle
+              cancelButtonTitle:(nullable NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block;
 
 
 /**
@@ -180,10 +181,10 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  @param subBottonTitle    确认按钮文案
  @param cancelButtonTitle 取消按钮文案
  */
--(void)showAlertView:(NSString *)title
+-(void)showAlertView:(nullable NSString *)title
              message:(NSString *)message
-      subBottonTitle:(NSString *)subBottonTitle
-   cancelButtonTitle:(NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block;
+      subBottonTitle:(nullable NSString *)subBottonTitle
+   cancelButtonTitle:(nullable NSString *)cancelButtonTitle handler:(clickButtonAtIndexBlock )block;
 
 @end
 
