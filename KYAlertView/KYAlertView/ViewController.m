@@ -88,24 +88,6 @@
     [alert show];
 }
 
-- (IBAction)customAlertView:(id)sender {
-
-    [[KYAlertView sharedInstance] showAlertView:@"领取成功"
-                     message:@"哇，中奖了100万,太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了"
-              subBottonTitle:@"分享好友"
-           cancelButtonTitle:@"立即查看"
-                     handler:^(AlertViewClickBottonType bottonType) {
-
-                         if (bottonType == AlertViewClickBottonTypeSubBotton) {
-                             NSLog(@"分享好友");
-                         }else if (bottonType == AlertViewClickBottonTypeCancelButton){
-                             NSLog(@"立即查看");
-                         }
-                     }];
-
-
-
-}
 - (IBAction)hightExAlertView:(id)sender {
 
     KYAlertView *alertView = [KYAlertView sharedInstance];
@@ -140,6 +122,53 @@
                          }
                      }];
 
+}
+- (IBAction)onSubBotton:(id)sender {
+
+    [[KYAlertView sharedInstance] showAlertView:@"领取成功"
+                                        message:@"哇，中奖了100万"
+                                 subBottonTitle:@"分享好友"
+                                        handler:^(AlertViewClickBottonType bottonType) {
+
+                                            if (bottonType == AlertViewClickBottonTypeSubBotton) {
+                                                NSLog(@"分享好友");
+                                            }
+                                        }];
+
+}
+
+- (IBAction)onCancelButton:(id)sender {
+
+    [[KYAlertView sharedInstance] showAlertView:@"领取失败"
+                                        message:@"请联系客服！"
+                                 cancelButtonTitle:@"好"
+                                        handler:^(AlertViewClickBottonType bottonType) {
+
+                                            if (bottonType == AlertViewClickBottonTypeCancelButton){
+                                                NSLog(@"取消");
+                                            }
+                                        }];
+
+}
+
+
+- (IBAction)customAlertView:(id)sender {
+
+    [[KYAlertView sharedInstance] showAlertView:@"领取成功"
+                                        message:@"哇，中奖了100万,太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了"
+                                 subBottonTitle:@"分享好友"
+                              cancelButtonTitle:@"立即查看"
+                                        handler:^(AlertViewClickBottonType bottonType) {
+
+                                            if (bottonType == AlertViewClickBottonTypeSubBotton) {
+                                                NSLog(@"分享好友");
+                                            }else if (bottonType == AlertViewClickBottonTypeCancelButton){
+                                                NSLog(@"立即查看");
+                                            }
+                                        }];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
