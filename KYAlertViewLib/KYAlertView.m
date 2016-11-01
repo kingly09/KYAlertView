@@ -674,7 +674,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     subBottonBackgroundColor  = nil;
     subBottonBorderColor      = nil;
     cancelButtonBackgroundColor = nil;
-    cancelButtonBackgroundColor  = nil;
+    cancelButtonTitleColor     = nil;
     cancelButtonBorderColor      = nil;
     alertViewBackgroundImage     = nil;
 

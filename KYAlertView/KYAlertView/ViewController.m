@@ -122,7 +122,7 @@
     [alertView setSubBottonTitleColor:[UIColor whiteColor]];         //设置SubBotton的文字颜色
 
     [alertView setSubBottonBorderColor:[UIColor redColor]];         //设置SubBotton的边框颜色
-    [alertView setCancelButtonTitleColor:[UIColor redColor]];       // 设置CancelButton的文字颜色
+    [alertView setCancelButtonTitleColor:[UIColor orangeColor]];       // 设置CancelButton的文字颜色
     [alertView setCancelButtonBackgroundColor:[UIColor whiteColor]];  // 设置CancelButto的背景颜色
     [alertView setCancelButtonBorderColor:[UIColor blackColor]];      // 设置CancelButton的边框颜色
 
