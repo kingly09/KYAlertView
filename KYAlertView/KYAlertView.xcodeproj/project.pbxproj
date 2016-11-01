@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC3283E21DC853D400085CA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3283E11DC853D400085CA0 /* main.m */; };
+		BC3283E51DC853D400085CA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3283E41DC853D400085CA0 /* AppDelegate.m */; };
+		BC3283E81DC853D400085CA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3283E71DC853D400085CA0 /* ViewController.m */; };
+		BC3283EB1DC853D400085CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3283E91DC853D400085CA0 /* Main.storyboard */; };
+		BC3283ED1DC853D400085CA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC3283EC1DC853D400085CA0 /* Assets.xcassets */; };
+		BC3283F01DC853D400085CA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3283EE1DC853D400085CA0 /* LaunchScreen.storyboard */; };
+		BC3283FA1DC8543600085CA0 /* KYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3283F91DC8543600085CA0 /* KYAlertView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BC3283DD1DC853D400085CA0 /* KYAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC3283E11DC853D400085CA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BC3283E31DC853D400085CA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BC3283E41DC853D400085CA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BC3283E61DC853D400085CA0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BC3283E71DC853D400085CA0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BC3283EA1DC853D400085CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BC3283EC1DC853D400085CA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC3283EF1DC853D400085CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BC3283F11DC853D400085CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC3283F81DC8543600085CA0 /* KYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYAlertView.h; sourceTree = "<group>"; };
+		BC3283F91DC8543600085CA0 /* KYAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYAlertView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC3283DA1DC853D400085CA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC3283D41DC853D400085CA0 = {
+			isa = PBXGroup;
+			children = (
+				BC3283DF1DC853D400085CA0 /* KYAlertView */,
+				BC3283DE1DC853D400085CA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC3283DE1DC853D400085CA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC3283DD1DC853D400085CA0 /* KYAlertView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3283DF1DC853D400085CA0 /* KYAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				BC3283F71DC8541400085CA0 /* KYAlertViewLib */,
+				BC3283E31DC853D400085CA0 /* AppDelegate.h */,
+				BC3283E41DC853D400085CA0 /* AppDelegate.m */,
+				BC3283E61DC853D400085CA0 /* ViewController.h */,
+				BC3283E71DC853D400085CA0 /* ViewController.m */,
+				BC3283E91DC853D400085CA0 /* Main.storyboard */,
+				BC3283EC1DC853D400085CA0 /* Assets.xcassets */,
+				BC3283EE1DC853D400085CA0 /* LaunchScreen.storyboard */,
+				BC3283F11DC853D400085CA0 /* Info.plist */,
+				BC3283E01DC853D400085CA0 /* Supporting Files */,
+			);
+			path = KYAlertView;
+			sourceTree = "<group>";
+		};
+		BC3283E01DC853D400085CA0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC3283E11DC853D400085CA0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC3283F71DC8541400085CA0 /* KYAlertViewLib */ = {
+			isa = PBXGroup;
+			children = (
+				BC3283F81DC8543600085CA0 /* KYAlertView.h */,
+				BC3283F91DC8543600085CA0 /* KYAlertView.m */,
+			);
+			name = KYAlertViewLib;
+			path = ../../KYAlertViewLib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC3283DC1DC853D400085CA0 /* KYAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC3283F41DC853D400085CA0 /* Build configuration list for PBXNativeTarget "KYAlertView" */;
+			buildPhases = (
+				BC3283D91DC853D400085CA0 /* Sources */,
+				BC3283DA1DC853D400085CA0 /* Frameworks */,
+				BC3283DB1DC853D400085CA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KYAlertView;
+			productName = KYAlertView;
+			productReference = BC3283DD1DC853D400085CA0 /* KYAlertView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC3283D51DC853D400085CA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "https://github.com/kingly09/KYAlertView  kingly inc.";
+				TargetAttributes = {
+					BC3283DC1DC853D400085CA0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = V446K9WVQL;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BC3283D81DC853D400085CA0 /* Build configuration list for PBXProject "KYAlertView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC3283D41DC853D400085CA0;
+			productRefGroup = BC3283DE1DC853D400085CA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC3283DC1DC853D400085CA0 /* KYAlertView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC3283DB1DC853D400085CA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC3283F01DC853D400085CA0 /* LaunchScreen.storyboard in Resources */,
+				BC3283ED1DC853D400085CA0 /* Assets.xcassets in Resources */,
+				BC3283EB1DC853D400085CA0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC3283D91DC853D400085CA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC3283E81DC853D400085CA0 /* ViewController.m in Sources */,
+				BC3283E51DC853D400085CA0 /* AppDelegate.m in Sources */,
+				BC3283E21DC853D400085CA0 /* main.m in Sources */,
+				BC3283FA1DC8543600085CA0 /* KYAlertView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BC3283E91DC853D400085CA0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC3283EA1DC853D400085CA0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BC3283EE1DC853D400085CA0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC3283EF1DC853D400085CA0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BC3283F21DC853D400085CA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC3283F31DC853D400085CA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC3283F51DC853D400085CA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V446K9WVQL;
+				INFOPLIST_FILE = KYAlertView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kingly09.KYAlertView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BC3283F61DC853D400085CA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V446K9WVQL;
+				INFOPLIST_FILE = KYAlertView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kingly09.KYAlertView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC3283D81DC853D400085CA0 /* Build configuration list for PBXProject "KYAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC3283F21DC853D400085CA0 /* Debug */,
+				BC3283F31DC853D400085CA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC3283F41DC853D400085CA0 /* Build configuration list for PBXNativeTarget "KYAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC3283F51DC853D400085CA0 /* Debug */,
+				BC3283F61DC853D400085CA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC3283D51DC853D400085CA0 /* Project object */;
+}
