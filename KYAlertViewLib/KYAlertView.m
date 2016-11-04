@@ -400,9 +400,9 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     UIColor *cancelButtonBackgroundColor;
     UIColor *cancelButtonBorderColor;
 
-
     UIImage *alertViewBackgroundImage; //设置AlertView的BackgroundImage
-
+    NSAttributedString *messageAttributedText; //设置富文本
+    UIFont *messageFont;                       //设置富文本大小
 
 
 }
@@ -597,6 +597,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
 
     titleLabel.text = alertTitle;
     contentLabel.text = alertContentText;
+
     CGRect alertContentTextRect = [alertContentText boundingRectWithSize:CGSizeMake(kAlertViewWidth-kAlertViewSpace*2,SCREEN_HEIGHT - 64 - KTitleLabelHigth - kAlertViewSpace - KBtnToFooterSpace - KBtnHight ) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
     contentLabel.size   = CGSizeMake(kAlertViewWidth-kAlertViewSpace*2,alertContentTextRect.size.height);
     contentLabel.x   = kAlertViewSpace;
@@ -678,6 +679,9 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     cancelButtonBorderColor      = nil;
     alertViewBackgroundImage     = nil;
 
+    messageAttributedText  = nil;
+    messageFont = nil;
+
 
     currWindow.hidden = YES;
     currWindow = nil;
@@ -737,6 +741,53 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     cancelLabel.backgroundColor = cancelButtonBackgroundColor?cancelButtonBackgroundColor:[UIColor clearColor];
     cancelLabel.textColor = cancelButtonTitleColor?cancelButtonTitleColor:[UIColor mainColor];
     cancelLabel.layer.borderColor = cancelButtonBorderColor?cancelButtonBorderColor.CGColor: [UIColor mainColor].CGColor;;
+
+    if (messageAttributedText.length > 0) {
+
+        contentLabel.attributedText = messageAttributedText;
+    }
+
+    if (messageFont) {
+
+        CGRect alertContentTextRect = [alertContentText boundingRectWithSize:CGSizeMake(kAlertViewWidth-kAlertViewSpace*2,SCREEN_HEIGHT - 64 - KTitleLabelHigth - kAlertViewSpace - KBtnToFooterSpace - KBtnHight ) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:messageFont} context:nil];
+        contentLabel.size   = CGSizeMake(kAlertViewWidth-kAlertViewSpace*2,alertContentTextRect.size.height);
+
+        if (alertContentTextRect.size.height < KTitleLabelHigth) {
+            contentLabel.textAlignment = NSTextAlignmentCenter;
+        }
+        if (alertSubBottonText.length > 0) {
+
+            alertSubBotton.y  = contentLabel.y + contentLabel.height + KBtnVarSpaceTop;
+
+            alertView.size = CGSizeMake(kAlertViewWidth, alertSubBotton.y + alertSubBotton.height + KBtnToFooterSpace);
+            alertView.x = (SCREEN_WIDTH - kAlertViewWidth)/2;
+            alertView.y  = (SCREEN_HEIGHT - (alertSubBotton.y + alertSubBotton.height + KBtnToFooterSpace))/2;
+
+            subLabel.size = alertSubBotton.size;
+        }
+
+        if (alertCancelText.length > 0) {
+
+            alertCancelBotton.y  = contentLabel.y + contentLabel.height + KBtnVarSpaceTop;
+            CGRect alertCancelBtnRect = [alertCancelText boundingRectWithSize:CGSizeMake(kAlertViewWidth,KBtnHight) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
+            alertCancelBotton.size = CGSizeMake(KBtnVarSpace*2+alertCancelBtnRect.size.width+KBtnHight/2,KBtnHight);
+
+            alertView.size = CGSizeMake(kAlertViewWidth, alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace);
+            alertView.x = (SCREEN_WIDTH - kAlertViewWidth)/2;
+            alertView.y  = (SCREEN_HEIGHT - (alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace))/2;
+
+            cancelLabel.size =  CGSizeMake(alertCancelBotton.size.width-1,KBtnHight);
+
+        }
+        if (alertSubBottonText.length > 0 && alertCancelText.length > 0){
+
+            alertSubBotton.x = (kAlertViewWidth - alertSubBotton.width - alertCancelBotton.width - KBtnToBtnSpace)/2;
+            alertCancelBotton.x = alertSubBotton.x + alertSubBotton.width + KBtnToBtnSpace;
+            
+        }
+        
+
+    }
 
 }
 
@@ -810,6 +861,25 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     if(color){
         
         cancelButtonBorderColor = color;
+    }
+}
+
+
+-(void)setMessageWithAttributedText:(NSAttributedString *)attributedText{
+
+    if (attributedText.length >  0) {
+        messageAttributedText = attributedText;
+    }
+}
+
+-(void)setMessageWithAttributedText:(NSAttributedString *)attributedText withFont:(UIFont *)font{
+
+    if (attributedText.length >  0) {
+        messageAttributedText = attributedText;
+    }
+
+    if (font) {
+        messageFont = font;
     }
 }
 

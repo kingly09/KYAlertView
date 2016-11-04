@@ -108,9 +108,10 @@
     [alertView setCancelButtonBackgroundColor:[UIColor whiteColor]];  // 设置CancelButto的背景颜色
     [alertView setCancelButtonBorderColor:[UIColor blackColor]];      // 设置CancelButton的边框颜色
 
+    NSString *messageStr = @"哇，4 太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了";
 
     [alertView showAlertView:@"领取成功"
-                     message:@"哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了"
+                     message:messageStr
               subBottonTitle:@"立即分享"
            cancelButtonTitle:@"立即查看"
                      handler:^(AlertViewClickBottonType bottonType) {
@@ -170,10 +171,37 @@
     
     
 }
+- (IBAction)attributeAlertView:(id)sender {
+
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+
+    KYAlertView *alertView = [KYAlertView sharedInstance];
+
+    NSString *messageStr = @"哇，变色了 太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了";
+    NSMutableAttributedString *attstr = [[NSMutableAttributedString alloc]initWithString:messageStr];
+    NSRange rangeStr = [messageStr rangeOfString:[NSString stringWithFormat:@"%@",@"变色了"]];
+    [attstr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:rangeStr];
+
+    [alertView setMessageWithAttributedText:attstr];
+
+    [alertView showAlertView:@"领取成功"
+                     message:messageStr
+              subBottonTitle:@"立即分享"
+           cancelButtonTitle:@"立即查看"
+                     handler:^(AlertViewClickBottonType bottonType) {
+
+                         if (bottonType == AlertViewClickBottonTypeSubBotton) {
+                             NSLog(@"分享好友");
+                         }else if (bottonType == AlertViewClickBottonTypeCancelButton){
+                             NSLog(@"立即查看");
+                         }
+                     }];
+
 }
 
 

@@ -114,6 +114,19 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  @param color CancelButton的边框颜色
  */
 -(void)setCancelButtonBorderColor:(UIColor *)color;
+/**
+ 设置富文本
+
+ @param attributedText 富文本文字
+ */
+-(void)setMessageWithAttributedText:(NSAttributedString *)attributedText;
+/**
+ 设置富文本
+
+ @param attributedText 富文本文字
+ @param font 富文本字体大小
+ */
+-(void)setMessageWithAttributedText:(NSAttributedString *)attributedText withFont:(UIFont *)font;
 
 /**
  显示AlertView视图，包含确定按钮,没有标题
