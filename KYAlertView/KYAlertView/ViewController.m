@@ -173,19 +173,15 @@
 }
 - (IBAction)attributeAlertView:(id)sender {
 
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-
     KYAlertView *alertView = [KYAlertView sharedInstance];
 
     NSString *messageStr = @"哇，变色了 太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了";
     NSMutableAttributedString *attstr = [[NSMutableAttributedString alloc]initWithString:messageStr];
     NSRange rangeStr = [messageStr rangeOfString:[NSString stringWithFormat:@"%@",@"变色了"]];
     [attstr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:rangeStr];
+
+    NSRange range02 = [messageStr rangeOfString:[NSString stringWithFormat:@"%@",@"好"]];
+    [attstr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:20] range:range02];
 
     [alertView setMessageWithAttributedText:attstr];
 
@@ -202,6 +198,12 @@
                          }
                      }];
 
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 
