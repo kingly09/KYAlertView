@@ -5,7 +5,7 @@ A highly customized package of AlertView, strong scalability
 
 # 说明
 
-KYAlertView 主要是支持block块方式的UIAlertView的扩展，支持原生的UIAlertView的`alertViewStyle`的四种样式`UIAlertViewStyleDefault`,`UIAlertViewStyleSecureTextInput`,`UIAlertViewStylePlainTextInput`,`UIAlertViewStyleLoginAndPasswordInput`,并且封装一个高自定义的UIAlertView，为了解决产品提出的不同场景的弹出层需求。
+KYAlertView 主要是支持block块方式的UIAlertView的扩展，支持原生的UIAlertView的`alertViewStyle`的四种样式`UIAlertViewStyleDefault`,`UIAlertViewStyleSecureTextInput`,`UIAlertViewStylePlainTextInput`,`UIAlertViewStyleLoginAndPasswordInput`,并且封装一个高自定义的UIAlertView，为了解决产品提出的不同场景的弹出层需求。支持富文本的UIAlertView的弹出层。
 
 # 安装
 
@@ -17,13 +17,13 @@ KYAlertView 主要是支持block块方式的UIAlertView的扩展，支持原生�
 ### 手动安装
 
 下载DEMO后,将子文件夹 **KYAlertViewLib** 拖入到项目中, 导入头文件`KYNetwork.h` 开始使用.
-	
+
 ### CocoaPods安装
 
 你可以在 Podfile 中加入下面一行代码来使用 KYAlertView
 
 ```
-	pod 'KYAlertView' 
+	pod 'KYAlertView'
 ```
 
 使用 `cocoaPods` 管理第三方库， 如果电脑没有安装 `cocoapods`，请先安装 `cocoapods`。安装方式可参考：[最新的cocoapods安装] (http://blog.sina.com.cn/s/blog_6ff6523d0102x8dq.html)
@@ -41,7 +41,7 @@ KYAlertView 主要是支持block块方式的UIAlertView的扩展，支持原生�
             NSLog(@"知道了");
         }
     };
-    
+
     [alert show];
 
 ```
@@ -68,9 +68,9 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
             NSLog(@"好");
 
         }
-        
+
     };
-    
+
     [alert show];
 
 
@@ -103,10 +103,10 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
 
             NSLog(@"取消");
         }
-        
+
     };
-    
-    
+
+
     [alert show];
 
 
@@ -194,7 +194,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
 设置内容的颜色
 
 ```
-  [alertView setContentLabelTextColor:[UIColor blueColor]]; 
+  [alertView setContentLabelTextColor:[UIColor blueColor]];
 ```
 
 设置AlertView的背景颜色
@@ -206,15 +206,15 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
 
 设置AlertView的背景图片
 
-  
+
 ```
-[alertView setAlertViewBackgroundImage:[UIImage imageNamed:@"bg_woyeyaoyugao"]]; 
+[alertView setAlertViewBackgroundImage:[UIImage imageNamed:@"bg_woyeyaoyugao"]];
 ```
 
 设置SubBotton的背景颜色
 
 ```
-[alertView setSubBottonBackgroundColor:[UIColor blackColor]]; 
+[alertView setSubBottonBackgroundColor:[UIColor blackColor]];
 ```
 
 设置SubBotton的文字颜色
@@ -227,7 +227,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录 iTunes Store " 
 
 
 ```
-[alertView setSubBottonBorderColor:[UIColor redColor]]; 
+[alertView setSubBottonBorderColor:[UIColor redColor]];
 
 
 ```
@@ -256,15 +256,37 @@ demo效果图如下：
 
 ![](./pngs/btn05.png)
 
+
+#### 支持富文本的UIAlertView的弹出层
+
+
+```
+KYAlertView *alertView = [KYAlertView sharedInstance];
+
+NSString *messageStr = @"哇，变色了 太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了";
+NSMutableAttributedString *attstr = [[NSMutableAttributedString alloc]initWithString:messageStr];
+NSRange rangeStr = [messageStr rangeOfString:[NSString stringWithFormat:@"%@",@"变色了"]];
+[attstr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:rangeStr];
+
+NSRange range02 = [messageStr rangeOfString:[NSString stringWithFormat:@"%@",@"好"]];
+[attstr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:20] range:range02];
+
+[alertView setMessageWithAttributedText:attstr];
+
+```
+
+![](./pngs/btn08.png)
+
+
 #  联系与建议反馈
 
 >
 > **weibo:** [http://weibo.com/balenn](http://weibo.com/balenn)
 >
 > **QQ:** 362108564
-> 
+>
 
-如果有任何你觉得不对的地方，或有更好的建议，以上联系都可以联系我。 十分感谢！ 
+如果有任何你觉得不对的地方，或有更好的建议，以上联系都可以联系我。 十分感谢！
 
 # 鼓励
 
@@ -273,4 +295,3 @@ demo效果图如下：
 # LICENSE
 
 KYAlertView 被许可在 **MIT** 协议下使用。查阅 **LICENSE** 文件来获得更多信息。
- 
