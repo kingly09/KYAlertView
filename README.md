@@ -5,7 +5,7 @@ A highly customized package of AlertView, strong scalability
 
 # 说明
 
-KYAlertView 主要是支持block块方式的UIAlertView的扩展，支持原生的UIAlertView的`alertViewStyle`的四种样式`UIAlertViewStyleDefault`,`UIAlertViewStyleSecureTextInput`,`UIAlertViewStylePlainTextInput`,`UIAlertViewStyleLoginAndPasswordInput`,并且封装一个高自定义的UIAlertView，为了解决产品提出的不同场景的弹出层需求。支持富文本的UIAlertView的弹出层。
+KYAlertView 主要是支持block块方式的UIAlertView的扩展，支持原生的UIAlertView的`alertViewStyle`的四种样式`UIAlertViewStyleDefault`,`UIAlertViewStyleSecureTextInput`,`UIAlertViewStylePlainTextInput`,`UIAlertViewStyleLoginAndPasswordInput`,并且封装一个高自定义的UIAlertView，为了解决产品提出的不同场景的弹出层需求。[支持富文本的UIAlertView的弹出层](#markdown-pane)。
 
 # 安装
 
@@ -257,7 +257,7 @@ demo效果图如下：
 ![](./pngs/btn05.png)
 
 
-#### 支持富文本的UIAlertView的弹出层
+# <a name="markdown-pane"></a>支持富文本的UIAlertView的弹出层
 
 
 ```
