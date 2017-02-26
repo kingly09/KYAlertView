@@ -201,6 +201,45 @@
 
 }
 
+
+- (IBAction)setCancelButtonAlertView:(id)sender {
+
+    KYAlertView *alertView = [KYAlertView sharedInstance];
+
+    [alertView setTitleLabelTextColor:[UIColor blackColor]];   //设置标题的颜色
+
+    [alertView setContentLabelTextColor:[UIColor blueColor]];    //设置内容的颜色
+
+    [alertView setAlertViewBackgroundColor:[UIColor yellowColor]];   //设置AlertView的颜色
+
+    //    [alertView setAlertViewBackgroundImage:[UIImage imageNamed:@"bg_woyeyaoyugao"]];   //设置AlertView的背景图片
+
+    [alertView setSubBottonBackgroundColor:[UIColor blackColor]];   //设置SubBotton的背景颜色
+    [alertView setSubBottonTitleColor:[UIColor whiteColor]];         //设置SubBotton的文字颜色
+
+    [alertView setSubBottonBorderColor:[UIColor redColor]];         //设置SubBotton的边框颜色
+    
+    [alertView setCancelButtonTitleColor:[UIColor whiteColor]];       // 设置CancelButton的文字颜色
+    [alertView setCancelButtonBackgroundColor:[UIColor clearColor]];  // 设置CancelButto的背景颜色
+    [alertView setCancelButtonBorderColor:[UIColor clearColor]];      // 设置CancelButton的边框颜色
+
+    NSString *messageStr = @"哇，4 太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了哇，太好了";
+
+    [alertView showAlertView:@"领取成功"
+                     message:messageStr
+              subBottonTitle:@"立即分享"
+           cancelButtonTitle:@"立即查看"
+                     handler:^(AlertViewClickBottonType bottonType) {
+
+                         if (bottonType == AlertViewClickBottonTypeSubBotton) {
+                             NSLog(@"分享好友");
+                         }else if (bottonType == AlertViewClickBottonTypeCancelButton){
+                             NSLog(@"立即查看");
+                         }
+                     }];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

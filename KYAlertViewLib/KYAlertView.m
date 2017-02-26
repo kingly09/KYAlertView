@@ -645,10 +645,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
         cancelLabel.size =  CGSizeMake(alertCancelBotton.size.width-1,KBtnHight);
         cancelLabel.x = 1/SCALE;
         cancelLabel.text = alertCancelText;
-        [cancelLabel.layer setMasksToBounds:YES];
-        cancelLabel.layer.cornerRadius = KBtnHight/2;
-        cancelLabel.layer.borderWidth = 1/SCALE;
-        cancelLabel.layer.borderColor = [UIColor mainColor].CGColor;
+       
 
     }
     if (alertSubBottonText.length > 0 && alertCancelText.length > 0){
@@ -738,10 +735,30 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
         subLabel.layer.borderColor = subBottonBorderColor.CGColor;
     }
 
+     
+  if ([cancelButtonBorderColor isEqual:[UIColor clearColor]]  && [cancelButtonBackgroundColor isEqual:[UIColor clearColor]]) {
+    CAGradientLayer *colorLayer = [CAGradientLayer layer];
+    colorLayer.frame    = CGRectMake(0,0, subLabel.width, subLabel.height);
+    colorLayer.colors = @[(__bridge id)[UIColor colorWithHex:0xfe436b].CGColor,
+                          (__bridge id)[UIColor colorWithHex:0xfe7f65].CGColor];
+    colorLayer.startPoint = CGPointMake(1, 0);
+    colorLayer.endPoint   = CGPointMake(0, 1);
+    colorLayer.cornerRadius = KBtnHight/2;
+    [cancelLabel.layer addSublayer:colorLayer];
+    
+    cancelLabel.textColor = cancelButtonTitleColor?cancelButtonTitleColor:[UIColor mainColor];
+    
+  }else{
+    
+    [cancelLabel.layer setMasksToBounds:YES];
+    cancelLabel.layer.cornerRadius = KBtnHight/2;
+    cancelLabel.layer.borderWidth = 1/SCALE;
+    cancelLabel.layer.borderColor = [UIColor mainColor].CGColor;
     cancelLabel.backgroundColor = cancelButtonBackgroundColor?cancelButtonBackgroundColor:[UIColor clearColor];
     cancelLabel.textColor = cancelButtonTitleColor?cancelButtonTitleColor:[UIColor mainColor];
     cancelLabel.layer.borderColor = cancelButtonBorderColor?cancelButtonBorderColor.CGColor: [UIColor mainColor].CGColor;;
-
+    
+  }
     if (messageAttributedText.length > 0) {
 
         contentLabel.attributedText = messageAttributedText;
