@@ -41,6 +41,48 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
  */
 + (KYAlertView *) sharedInstance;
 
+/**
+ * @breif 获取实例
+ */
++ (KYAlertView *) sharedInstance;
+
+
+/**
+ 获得弹出视图的AlertView
+
+ @return 返回获得弹出视图的尺寸
+ */
+-(UIView *)getAlertView;
+
+/**
+ 获得弹出视图 取消按钮
+
+ @return 返回获得弹出视图取消按钮
+ */
+-(UIButton *)getAlertCancelBotton;
+
+/**
+ 获得弹出视图 确定按钮
+
+ @return 返回获得弹出视图 确定按钮
+ */
+-(UIButton *)getAlertSubBotton;
+
+/**
+ 获得弹出视图 消息内容Label
+
+ @return 返回获得弹出视图 消息内容Label
+ */
+-(UILabel *)getAlertContentLabel;
+
+
+/**
+ 获得弹出视图 标题内容Label
+
+ @return 返回 获得弹出视图 标题内容Label
+ */
+-(UILabel *)getAlertTitleLabel;
+
 
 /**
  设置AlertView标题的颜色

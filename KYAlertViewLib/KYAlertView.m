@@ -586,6 +586,9 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     [self customView];
 
     [self loadDataView];
+    
+    //子类重写可以自定义视图
+    [self customHightView];
 
 }
 
@@ -898,6 +901,60 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     if (font) {
         messageFont = font;
     }
+}
+
+#pragma mark - 对外扩展
+/**
+ 获得弹出视图的AlertView
+
+ @return 返回获得弹出视图的尺寸
+ */
+-(UIView *)getAlertView{
+  
+  return alertView;
+}
+
+/**
+ 获得弹出视图 取消按钮
+
+ @return 返回获得弹出视图取消按钮
+ */
+-(UIButton *)getAlertCancelBotton{
+  
+  return alertCancelBotton;
+}
+
+/**
+ 获得弹出视图 确定按钮
+
+ @return 返回获得弹出视图 确定按钮
+ */
+-(UIButton *)getAlertSubBotton{
+  return alertSubBotton;
+}
+
+/**
+ 获得弹出视图 消息内容Label
+
+ @return 返回获得弹出视图 消息内容Label
+ */
+-(UILabel *)getAlertContentLabel {
+  
+  return contentLabel;
+}
+
+/**
+ 获得弹出视图 标题内容Label
+
+ @return 返回 获得弹出视图 标题内容Label
+ */
+-(UILabel *)getAlertTitleLabel {
+
+  return titleLabel;
+}
+
+-(void)customHightView {
+  //父类不实现，如果子类想扩展可以重写该方法
 }
 
 @end
