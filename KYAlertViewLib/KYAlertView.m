@@ -29,6 +29,18 @@
 #define KBtnToFooterSpace 32.0f
 #define KBtnToBtnSpace 15.0f
 
+//************************* 横竖屏下的宽高 ***************************
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_MIN MIN(SCREEN_HEIGHT,SCREEN_WIDTH)
+#define SCREEN_MAX MAX(SCREEN_HEIGHT,SCREEN_WIDTH)
+
+#define STIsLandscape ((UIDeviceOrientation)[UIApplication sharedApplication].statusBarOrientation)
+
+#define CurrentWidth ((STIsLandscape == UIDeviceOrientationPortrait)?SCREEN_MIN:SCREEN_MAX)
+
+#define CurrentHeight ((STIsLandscape == UIDeviceOrientationPortrait)?SCREEN_MAX:SCREEN_MIN)
+
 static char KYOriginalUIAlertViewDelegateKey;
 static char KYAlertViewClickedButtonAtIndexBlockKey;
 static char KYAlertViewCancelBlockKey;
@@ -444,11 +456,14 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
  *  自定义视图
  **/
 -(void)customView{
-
+    
     alertView = [[UIView alloc] init];
+    alertView.transform = CGAffineTransformMakeRotation(0);
     alertView.size = CGSizeMake(kAlertViewWidth, kAlertViewHight);
     alertView.x = (SCREEN_WIDTH - kAlertViewWidth)/2;
     alertView.y  = (SCREEN_HEIGHT - kAlertViewHight)/2;
+  
+
     alertView.backgroundColor = [UIColor whiteColor];
     alertView.layer.cornerRadius = 10;
     [currWindow addSubview:alertView];
@@ -578,11 +593,13 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     alertSubBottonText = subBottonTitle;
     alertCancelText    = cancelButtonTitle;
 
-    currWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT)];
+    currWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0,SCREEN_MIN,SCREEN_MAX)];
     currWindow.windowLevel = UIWindowLevelAlert+1;
     currWindow.backgroundColor = [UIColor colorWithHex:0x202020 alpha:0.55];
     currWindow.hidden = NO;
-
+    
+    
+    
     [self customView];
 
     [self loadDataView];
@@ -624,9 +641,12 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
         alertSubBotton.backgroundColor = [UIColor clearColor];
 
         alertView.size = CGSizeMake(kAlertViewWidth, alertSubBotton.y + alertSubBotton.height + KBtnToFooterSpace);
-        alertView.x = (SCREEN_WIDTH - kAlertViewWidth)/2;
-        alertView.y  = (SCREEN_HEIGHT - (alertSubBotton.y + alertSubBotton.height + KBtnToFooterSpace))/2;
+        CGPoint alertPoint;
+        
 
+        alertPoint = CGPointMake((SCREEN_WIDTH - kAlertViewWidth)/2, (SCREEN_HEIGHT - (alertSubBotton.y + alertSubBotton.height + KBtnToFooterSpace))/2);
+
+        alertView.origin = alertPoint;
         subLabel.size = alertSubBotton.size;
         subLabel.text = alertSubBottonText;
 
@@ -640,15 +660,24 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
         alertCancelBotton.size = CGSizeMake(KBtnVarSpace*2+alertCancelBtnRect.size.width+KBtnHight/2,KBtnHight);
         alertCancelBotton.x = (kAlertViewWidth - alertCancelBotton.width)/2;
 
+        if (self.isLandscape == YES) {
+            
+            alertView.size = CGSizeMake(kAlertViewWidth , alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace);
+            alertView.transform = CGAffineTransformMakeRotation(M_PI_2);
+            alertView.y = (SCREEN_MAX - kAlertViewWidth)/2;
+            alertView.x  = (SCREEN_MIN - (alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace))/2;
+        }else{
+            alertView.size = CGSizeMake(kAlertViewWidth, alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace);
+            alertView.transform = CGAffineTransformMakeRotation(0);
+            alertView.x = (CurrentWidth - kAlertViewWidth)/2;
+            alertView.y  = (CurrentHeight - (alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace))/2;
+        }
+        
 
-        alertView.size = CGSizeMake(kAlertViewWidth, alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace);
-        alertView.x = (SCREEN_WIDTH - kAlertViewWidth)/2;
-        alertView.y  = (SCREEN_HEIGHT - (alertCancelBotton.y + alertCancelBotton.height + KBtnToFooterSpace))/2;
 
         cancelLabel.size =  CGSizeMake(alertCancelBotton.size.width-1,KBtnHight);
         cancelLabel.x = 1/SCALE;
         cancelLabel.text = alertCancelText;
-       
 
     }
     if (alertSubBottonText.length > 0 && alertCancelText.length > 0){
@@ -738,6 +767,7 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
         subLabel.layer.borderColor = subBottonBorderColor.CGColor;
     }
 
+    
      
   if ([cancelButtonBorderColor isEqual:[UIColor clearColor]]  && [cancelButtonBackgroundColor isEqual:[UIColor clearColor]]) {
     CAGradientLayer *colorLayer = [CAGradientLayer layer];
@@ -762,6 +792,8 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
     cancelLabel.layer.borderColor = cancelButtonBorderColor?cancelButtonBorderColor.CGColor: [UIColor mainColor].CGColor;;
     
   }
+
+
     if (messageAttributedText.length > 0) {
 
         contentLabel.attributedText = messageAttributedText;
@@ -955,6 +987,17 @@ static char KYAlertViewShouldEnableFirstOtherButtonBlockKey;
 
 -(void)customHightView {
   //父类不实现，如果子类想扩展可以重写该方法
+}
+
+/**
+ 设置横竖屏的切换
+
+ @param isLandscape YES为横屏模式
+ */
+-(void)setIsLandscape:(BOOL)isLandscape
+{
+
+    _isLandscape = isLandscape;
 }
 
 @end

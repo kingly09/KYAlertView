@@ -34,13 +34,12 @@ typedef BOOL (^KYAlertViewBoolBlock)(UIAlertView *alertView);
 @end
 
 @interface KYAlertView : UIView
+/*
+ 横竖屏状态
+ */
+@property (assign, nonatomic)BOOL isLandscape;
 
 @property (nonatomic,strong)   id customObject; //自定义对象
-/**
- * @breif 获取实例
- */
-+ (KYAlertView *) sharedInstance;
-
 /**
  * @breif 获取实例
  */

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name         = "KYAlertView"
 s.summary      = "A highly customized package of AlertView, strong scalability."
-s.version      = '0.0.3'
+s.version      = '0.0.4'
 s.homepage     = "https://github.com/kingly09/KYAlertView"
 s.license      = { :type => "MIT", :file => "LICENSE" }
 s.author       = { "kingly" => "libintm@163.com" }
